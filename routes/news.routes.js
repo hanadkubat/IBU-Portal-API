@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-//model
-const Suggestion = require("../models/suggestion.model");
+const News = require("../models/news.model");
 
 //routes
 router
@@ -25,21 +24,12 @@ router
       else res.json(doc);
     });
   })
-  .put("/approve", (req, res) => {
-    Suggestion.findByIdAndUpdate(
-      req.body.suggestionId,
-      { approved: req.body.approved },
-      (err, doc) => {
-        if (err) res.json(err);
-        else res.json(doc);
-      }
-    );
-  })
   .delete("/delete", (req, res) => {
-    Suggestion.findByIdAndDelete(req.body.suggestionId, (err, doc) => {
+    Suggestion.findByIdAndDelete(req.body.newsId, (err, doc) => {
       if (err) res.json(err);
       else res.json(doc);
     });
   });
+
 
 module.exports = router;
