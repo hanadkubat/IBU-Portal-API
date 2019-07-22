@@ -6,9 +6,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+//custom token validation middleware
 const validateToken = require("./utils").validateToken;
+
 //router imports
-const boilerplateMidd = require("./routes/boilerplate.routes");
+const SuggestionRouter = require("./routes/suggestion.routes");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,9 +29,9 @@ mongoose
   });
 
 //routers
-app.use("/api/boilerplate", boilerplateMidd);
+app.use("/api/suggestion", SuggestionRouter);
 
-app.get("/hello", (req, res) => res.send("Hello World!"));
+app.get("/hello", (req, res) => res.send('Hello user: ' + req.signedInId));
 
 
 

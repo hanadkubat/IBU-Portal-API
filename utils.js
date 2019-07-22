@@ -21,7 +21,8 @@ module.exports = {
         };
         azureJWT.verify(token, config).then(
           function(decoded) {
-            //res.json(decoded);
+            const signedInId = JSON.parse(decoded).message.oid;
+            req.signedInId = signedInId;
             next();
           },
           function(error) {
