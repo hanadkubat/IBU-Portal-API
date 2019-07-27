@@ -10,18 +10,19 @@ router
     Suggestion.create(
       {
         userId: req.signedInId,
+        userName: req.signedInName,
         title: req.body.title,
         content: req.body.content
       },
       (err, doc) => {
-        if (err) res.json(err);
+        if (err) res.status(400).json(err);
         else res.json(doc);
       }
     );
   })
   .get("/all", (req, res) => {
     Suggestion.find({}, (err, doc) => {
-      if (err) res.json(err);
+      if (err) res.status(400).json(err);
       else res.json(doc);
     });
   })
@@ -30,14 +31,14 @@ router
       req.body.suggestionId,
       { approved: req.body.approved },
       (err, doc) => {
-        if (err) res.json(err);
+        if (err) res.status(400).json(err);
         else res.json(doc);
       }
     );
   })
   .delete("/delete", (req, res) => {
     Suggestion.findByIdAndDelete(req.body.suggestionId, (err, doc) => {
-      if (err) res.json(err);
+      if (err) res.status(400).json(err);
       else res.json(doc);
     });
   });

@@ -21,12 +21,13 @@ module.exports = {
         };
         azureJWT.verify(token, config).then(
           function(decoded) {
-            const signedInId = JSON.parse(decoded).message.oid;
-            req.signedInId = signedInId;
+            console.log(decoded)
+            req.signedInId = JSON.parse(decoded).message.oid;
+            req.signedInName = JSON.parse(decoded).message.name;
             next();
           },
           function(error) {
-            res.json(error);
+            res.status(403).json(error);
           }
         );
         
