@@ -11,6 +11,7 @@ const validateToken = require("./utils").validateToken;
 
 //router imports
 const SuggestionRouter = require("./routes/suggestion.routes");
+const CommentRouter = require("./routes/comment.routes");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,6 +31,7 @@ mongoose
 
 //routers
 app.use("/api/suggestion", SuggestionRouter);
+app.use("/api/comment", CommentRouter);
 
 app.get("/hello", (req, res) => res.send('Hello user: ' + req.signedInId));
 

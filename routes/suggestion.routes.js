@@ -26,6 +26,12 @@ router
       else res.json(doc);
     });
   })
+  .get("/:suggestionId", (req, res) => {
+    Suggestion.findById(req.params.suggestionId, (err, doc) => {
+      if (err) res.status(400).json(err);
+      else res.json(doc);
+    })
+  })
   .put("/approve", (req, res) => {
     Suggestion.findByIdAndUpdate(
       req.body.suggestionId,
