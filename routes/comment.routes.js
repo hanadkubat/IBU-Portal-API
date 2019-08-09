@@ -9,6 +9,7 @@ router.post("/add", (req, res) => {
     {
       userId: req.signedInId,
       userName: req.signedInName,
+      suggestionId: req.body.suggestionId,
       content: req.body.content
     },
     (err, doc) => {
