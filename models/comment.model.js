@@ -11,7 +11,7 @@ const CommentSchema = new Schema({
         required: true
     },
     suggestionId: {
-        type: String,
+        type: mongoose.Types.ObjectId,
         required: true
     },
     date: {

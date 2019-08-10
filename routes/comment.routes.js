@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require('mongoose')
 
 //model
 const Comment = require("../models/comment.model");
@@ -9,7 +10,7 @@ router.post("/add", (req, res) => {
     {
       userId: req.signedInId,
       userName: req.signedInName,
-      suggestionId: req.body.suggestionId,
+      suggestionId: mongoose.Types.ObjectId(req.body.suggestionId),
       content: req.body.content
     },
     (err, doc) => {
