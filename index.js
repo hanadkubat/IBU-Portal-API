@@ -33,8 +33,4 @@ mongoose
 app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
 
-app.get("/hello", (req, res) => res.send('Hello user: ' + req.signedInId));
-
-
-
 app.listen(port, () => console.log(`server running on port ${port}`));
