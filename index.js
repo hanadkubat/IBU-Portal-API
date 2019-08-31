@@ -12,6 +12,7 @@ const validateToken = require("./utils").validateToken;
 //router imports
 const SuggestionRouter = require("./routes/suggestion.routes");
 const CommentRouter = require("./routes/comment.routes");
+const NewsRouter = require("./routes/news.routes");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,5 +33,6 @@ mongoose
 //routers
 app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
+app.use("/api/news", NewsRouter);
 
 app.listen(port, () => console.log(`server running on port ${port}`));

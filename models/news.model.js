@@ -6,6 +6,10 @@ const NewsSchema = new Schema({
         type: String,
         required: true
     },
+    userName:{
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
@@ -18,9 +22,9 @@ const NewsSchema = new Schema({
         type: String,
         required: true
     },
-    img: {
-        type: String,
-        default: ''
+    img: { 
+        data: Buffer, 
+        contentType: String 
     }
 })
 
