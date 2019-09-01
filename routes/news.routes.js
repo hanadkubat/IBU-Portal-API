@@ -27,5 +27,17 @@ router
       }
     );
   })
+  .get("/all", (req, res) => {
+    News.find({}, (err, doc) => {
+      if (err) res.json(err);
+      else res.json(doc);
+    })
+  })
+  .delete("/delete", (req, res) => {
+    News.findByIdAndDelete(req.body.newsId, (err, doc) => {
+      if (err) res.status(400).json(err);
+      else res.json(doc);
+    });
+  });
 
 module.exports = router;
