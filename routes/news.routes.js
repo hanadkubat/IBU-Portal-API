@@ -1,10 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const fs = require('fs');
-//multer init
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+const path = require('path');
 
+//multer init
+const multer  = require('multer')
+const storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function(req, file, cb){
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
+const upload = multer({ storage: storage });
+
+//model import
 const News = require("../models/news.model");
 
 //routes
@@ -17,8 +26,9 @@ router
         title: req.body.title,
         content: req.body.content,
         img: {
-          data: fs.readFileSync(req.file.path), 
-          contentType: req.file.mimetype
+          data: fs.readFileSync(req.file.path),
+          contentType: req.file.mimetype,
+          filename: req.file.filename
         }
       },
       (err, doc) => {

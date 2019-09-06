@@ -24,7 +24,8 @@ const NewsSchema = new Schema({
     },
     img: { 
         data: Buffer, 
-        contentType: String 
+        contentType: String ,
+        filename: String
     }
 })
 

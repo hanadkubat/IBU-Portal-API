@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.port || 8000;
-
+const path = require('path');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -30,6 +30,8 @@ mongoose
     console.log(err);
   });
 
+//static
+app.use(express.static('public'))
 //routers
 app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
