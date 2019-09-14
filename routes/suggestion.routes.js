@@ -27,7 +27,7 @@ router
       else res.json(doc);
     });
   })
-  .get("/:suggestionId", (req, res) => {
+  .get("/one/:suggestionId", (req, res) => {
     Suggestion.aggregate(
       [
         {

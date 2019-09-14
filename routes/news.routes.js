@@ -37,6 +37,12 @@ router
       }
     );
   })
+  .get("/article/:newsId", (req, res) => {
+    News.findById(req.params.newsId, (err, doc) => {
+      if (err) res.json(err);
+      else res.json(doc);
+    })
+  })
   .get("/all", (req, res) => {
     News.find({}, (err, doc) => {
       if (err) res.json(err);
