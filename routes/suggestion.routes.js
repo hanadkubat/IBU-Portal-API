@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 //model
 const Suggestion = require("../models/suggestion.model");
-
+const News = require("../models/news.model");
 //routes
 router
   .post("/add", (req, res) => {
@@ -63,7 +63,7 @@ router
   .delete("/delete", (req, res) => {
     Suggestion.findByIdAndDelete(req.body.suggestionId, (err, doc) => {
       if (err) res.status(400).json(err);
-      else res.json(doc);
+      else res.json(doc)
     });
   });
 
