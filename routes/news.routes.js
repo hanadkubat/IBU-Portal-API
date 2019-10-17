@@ -25,11 +25,11 @@ router
         userName: req.signedInName,
         title: req.body.title,
         content: req.body.content,
-        img: {
+        img: req.file ? {
           data: fs.readFileSync(req.file.path),
           contentType: req.file.mimetype,
           filename: req.file.filename
-        }
+        } : null
       },
       (err, doc) => {
         if (err) res.json(err);
