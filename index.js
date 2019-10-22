@@ -37,8 +37,4 @@ app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
 app.use("/api/news", NewsRouter);
 
-app.get('/live', (req, res) => {
-  res.send('Hello World')
-})
-
 app.listen(port, () => console.log(`server running on port ${port}`));
