@@ -37,7 +37,7 @@ app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
 app.use("/api/news", NewsRouter);
 
-app.get('/', (req, res) => {
+app.get('/live', (req, res) => {
   res.send('Hello World')
 })
 
