@@ -1,7 +1,7 @@
 {
-  "name": "skika-backend",
+  "name": "IBU IT Portal API",
   "version": "1.0.0",
-  "description": "backend service for mibo portal",
+  "description": "backend service for IBU IT Portal ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
