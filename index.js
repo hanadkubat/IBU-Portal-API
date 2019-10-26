@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
@@ -37,4 +38,4 @@ app.use("/api/suggestion", SuggestionRouter);
 app.use("/api/comment", CommentRouter);
 app.use("/api/news", NewsRouter);
 
-app.listen(port, () => console.log(`server running on port ${port}`));
+app.listen(port, () => console.log(`server running on port ${port}`, process.env));
