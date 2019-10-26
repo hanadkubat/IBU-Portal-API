@@ -1,5 +1,5 @@
 {
-  "name": "IBU IT Portal API",
+  "name": "ibu-portal-api",
   "version": "1.0.0",
   "description": "backend service for IBU IT Portal ",
   "main": "index.js",
