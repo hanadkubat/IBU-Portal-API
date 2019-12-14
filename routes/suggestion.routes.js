@@ -60,6 +60,16 @@ router
       }
     );
   })
+  .put("/active", (req, res) => {
+    Suggestion.findByIdAndUpdate(
+      req.body.suggestionId,
+      { active: req.body.active},
+      (err, doc) => {
+        if (err) res.status(400).json(err);
+        else res.json(doc);
+      }
+    );
+  })
   .put("/update", (req, res) => {
     Suggestion.findByIdAndUpdate(
       req.body.suggestionId,

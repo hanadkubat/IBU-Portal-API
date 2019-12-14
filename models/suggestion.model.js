@@ -25,6 +25,10 @@ const SuggestionSchema = new Schema({
     approved: {
         type: Boolean,
         default: false
+    },
+    active: {
+        type: Boolean,
+        default: true
     }
 })
 
